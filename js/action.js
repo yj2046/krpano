@@ -95,3 +95,47 @@ function PlayVideo(videoName) {
         backVideoDiv.parentNode.removeChild(backVideoDiv);
     });
 }
+//解说
+function PlayJieshuo(){
+    var krpano=document.getElementById("mypanoSWFObject");
+
+    if(status==0){
+
+        krpano.set("layer[skin_jieshao_m_container].visible",true);
+        status = 1;
+    }else{
+        krpano.set("layer[skin_jieshao_m_container].visible",false);
+        status = 0;
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

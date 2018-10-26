@@ -15,16 +15,37 @@
 
 	<layer name="audio123" url="img/open.png" x="20" y="80" keep="true" visible="true" scale="0.04" onclick="js(PlayAudio('mp3/bg_music.mp3'););"/>
 
-	<!-- <layer name="skin_xiamianlogo" url="https://s.autoimg.cn/www/site/widget/images/robotImg.png" x="20" y="50" keep="true" visible="true" scale="2" onclick="show_introduce" zoom="true" distorted="true"/> -->
-
-	
-	
-	
-
-	
 
 
+
+	<!-- 场景解说start -->
+	<layer name="skin_jieshao_m_container" keep="true" type="container" align="leftbottom" bgcolor="0x000000" bgalpha="0.5" x="0" y="90" width="100%" height="400" enabled="true" zorder="300" visible="false" state="closed">
+		<layer name="titleAndcnoren" keep="true" type="container" align="leftop" bgcolor="0x000000" bgalpha="0.5" x="0" y="0" width="100%" height="70" enabled="true" zorder="300" visible="true">
+			<layer name="skin_scene_jieshao_m_title" url="%SWFPATH%/plugins/textfield.swf" align="lefttop" width="100%" height="30" autoheight="true" x="20" y="15" zorder="4" enabled="false" background="false" border="false" css="text-align:left; color:#cecece; font-family:微软雅黑,Arial;font-size:34px;leading:1px;letter-spacing:1px;" textshadow="1" textshadowcolor="0x000000" html="景区介绍" visible="true"/>
+		</layer>
+		<layer name="skin_jianjie_m_scroll_mask" keep="true" type="container" align="lefttop" width="100%" height="310" bgcolor="0x000000" bgalpha="0" x="0" y="75">
+			<layer name="skin_jianjie_m_scroll" url="%SWFPATH%/plugins/scrollarea.swf" alturl="%SWFPATH%/plugins/scrollarea.js" direction="v" align="top" zorder="100" width="100%" keep="true" visible="true" y="0">
+				<layer name="skin_jianjie_m" keep="true" type="container" align="lefttop" width="100%" height="100%" bgcolor="0x000000" bgalpha="0.1" x="0" y="0">
+					<layer name="skin_scene_jieshao_m_content" url="%SWFPATH%/plugins/textfield.swf" align="top" width="98%" autoheight="true" x="0" y="0" zorder="4" enabled="false" background="false" border="false" css="text-align:left; color:#cecece; font-family:微软雅黑,Arial;font-size:30px;leading:1px;letter-spacing:1px;" textshadow="1" textshadowcolor="0x000000" html="798艺术区位于北京朝阳区酒仙桥街道大山子地区，是国内名声最大也最成熟的艺术区，并已经成为了北京都市文化的新地标。798艺术区原是国营798厂等电子工业的老厂区所在地，后来一些艺术家集聚于此，在原有厂房的基础上，对一些建筑进行适当装修和修饰，使之成为富有特色的艺术展示和创作空间。目前，这里还有一些工厂在生产，艺术和工业在这里互不干扰，又和谐共生，所谓精致与粗狂并存、抽象与实物同在，我们可以在这里吸收来自艺术的魅力之光，感受物质与精神的极大冲撞。 798艺术区内有大量的艺术空间、咖啡馆、餐厅和小店。大名鼎鼎的艺术家如洪晃、刘索拉、李象群等都进驻了798。无论何时去，这里都有很多展览或讲座在等待你。除了室内展览，路边的创意雕塑也颇吸引人眼球，也许我们还会碰巧遇到一些独特又创意无限的行为艺术表演呢。 " visible="true" onautosized="set_skin_jianjie_mheight();"/>
+				</layer>
+			</layer>
+		</layer>
+	</layer>
+	<action name="set_skin_jianjie_mheight">
+	set(scroolheight,get(layer[skin_scene_jieshao_m_content].height)); set(layer[skin_jianjie_m_scroll].height,get(scroolheight));
+	</action>
+
+
+	<action name="jqjieshuo_btn">
+		if(!jqjieshuo_btnset,layer[skin_jieshao_m_container].visible, true);
+
+		if(jqjieshuo_btnset,layer[skin_jieshao_m_container].visible, false);
+
+
+		set(layer[skin_jieshao_m_container].visible, false);
 	
+	</action>
+	<!-- 场景解说end -->
 
 
 	<!-- testEnd -->
@@ -99,25 +120,34 @@
 	<!-- startup action - load the first scene -->
 	<action name="startup" autorun="onstart">
 		if(startscene === null OR !scene[get(startscene)], copy(startscene,scene[0].name); );
-		loadscene(get(startscene), null, MERGE);
+		
 		if(startactions !== null, startactions() );
+
+
+		if(startscene === null, copy(startscene,scene[0].name));
+
+        loadscene(get(startscene), null, MERGE);
+
+        playsound(bgsnd, 'mp3/bg_music.mp3', 0);
+  
+        if(autorotate.enabled,bombtimer(0)); 
 	</action>
 
-
+	<!-- 小行星开场效果start -->
+	<view stereographic="true"
+	  fisheye="1.0"
+	  fov="155"
+	  fovtype="VFOV"
+	  fovmax="150"
+	  hlookat="-60"
+	  vlookat="77"
+	  />
+	<!-- 小行星开场效果end -->
 	
 	<scene name="scene_002" title="紫禁城-1" onstart="" thumburl="panos/002.tiles/thumb.jpg" lat="" lng="" heading="">
 
 		<!-- <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" /> -->
-
-		<view stereographic="true"
-		  fisheye="1.0"
-		  fov="155"
-		  fovtype="VFOV"
-		  fovmax="150"
-		  hlookat="-60"
-		  vlookat="77"
-		  />
-
+		
 
 		<preview url="panos/002.tiles/preview.jpg" />
 
@@ -128,6 +158,7 @@
 		</image>
 
 
+		<hotspot ath="5.5" atv="3.23" linkedscene="scene_003" name="spot1540455717532" style="skin_hotspotstyle" dive="true"/>
 
 
 	</scene>
@@ -143,6 +174,8 @@
 				<cube url="panos/003.tiles/%s/l1/%v/l1_%s_%v_%h.jpg" />
 			</level>
 		</image>
+
+		<hotspot ath="5.5" atv="3.23" linkedscene="scene_004" name="spot1540455717532" style="skin_hotspotstyle" dive="true"/>
 
 	</scene>
 
@@ -223,7 +256,7 @@
 
 
 
-	<!-- 小行星效果 -->
+	<!-- 小行星开场效果start -->
 	<display flash10="off" details="24" />
  
  
@@ -241,6 +274,7 @@
 		set(display.flash10, on);
 		
 	</action>
+	<!-- 小行星开场效果end -->
 
 
 </krpano>

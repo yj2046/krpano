@@ -287,6 +287,12 @@
 	       />
 
 
+
+
+
+
+
+
 	<!-- skin layout -->
 	<layer name="skin_layer" keep="true" type="container" align="top" width="get:skin_settings.layout_width" maxwidth="get:skin_settings.layout_maxwidth" height="100%" maskchildren="true" visible="false" bgcapture="false" zorder="1">
 		<layer name="skin_scroll_window" type="container" align="bottom" width="100%" height="100%" x="0" y="calc:skin_settings.controlbar_offset + skin_settings.controlbar_height - skin_settings.controlbar_overlap" maskchildren="true" onloaded="skin_calc_opened_closed();" zorder="1">
@@ -337,6 +343,25 @@
 					<layer name="skin_btn_down"  style="skin_base|skin_glow" crop="64|256|64|64" align="center"      x="+20"  y="0"  scale="0.5" ondown2="set(vlookat_moveforce,+1);" onup2="set(vlookat_moveforce,0);" />
 					<layer name="skin_btn_in"    style="skin_base|skin_glow" crop="0|320|64|64"  align="center"      x="+60"  y="0"  scale="0.5" ondown2="set(fov_moveforce,-1);"     onup2="set(fov_moveforce,0);" />
 					<layer name="skin_btn_out"   style="skin_base|skin_glow" crop="64|320|64|64" align="center"      x="+100" y="0"  scale="0.5" ondown2="set(fov_moveforce,+1);"     onup2="set(fov_moveforce,0);" />
+
+
+
+
+                    <!-- 场景解说-myAdd -->
+
+	<layer name="skin_btn_introduce" style="skin_base|skin_glow" url="../img/text.png" x="0"  y="0" scale="0.03" onclick="js(PlayJieshuo);"  devices="html5"/>
+
+
+	<!-- <layer name="skin_btn_introduce2" style="skin_base|skin_glow" url="../img/text.png" x="-60"  y="0" scale="0.03" onclick="set(layer[skin_jieshao_m_container].visible, true)"  devices="html5"/> -->
+
+
+	<!-- 音频开关-myAdd -->
+	<layer name="skin_btn_sound" style="skin_base|skin_glow" crop="0|700|64|64" x="360"  y="0" scale="0.5" onclick="pausesoundtoggle(bgsnd); switch(crop,'0|700|64|64','64|700|64|64');" onloaded="if(ismobile,set(scale,1)" devices="html5"/>
+
+
+
+
+
 				</layer>
 				<layer name="skin_btn_gyro"      style="skin_base|skin_glow" crop="0|384|64|64"  align="center"      x="+140" y="0"  scale="0.5" onclick="switch(plugin[skin_gyro].enabled); if(plugin[skin_gyro].enabled, skin_showmap(false));" visible="false" devices="html5" />
 				<layer name="skin_btn_vr"        style="skin_base|skin_glow" crop="0|0|80|64"    align="center"      x="+146" y="0"  scale="0.5" onclick="webvr.enterVR();" visible="false" />
@@ -1177,5 +1202,24 @@
 		tween(view.hlookat, get(new_hlookat), distance(100,0.8));
 		skin_deeplinking_update_url(1.0);
 	</action>
+
+
+	<!-- 音频 -->
+    <plugin name="soundinte***ce" 
+
+      url="%SWFPATH%/plugins/soundinterface.swf" 
+
+      alturl="%SWFPATH%/plugins/soundinterface.js" 
+
+      rootpath="" 
+
+      preload="true" 
+
+      keep="true" 
+
+      />
+
+
+
 
 </krpano>
