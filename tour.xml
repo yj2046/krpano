@@ -11,12 +11,7 @@
 	
 	<!-- 音频播放 -->
 	<!-- 直接在热点的点击事件里调用js的函数，把视频文件或音频文件传进去 -->
-	<!-- <hotspot name="audio1" url="img/open.png" ath="0" atv="0" crop="0|50|50|50" keep="true" visible="true" scale="0.8" onclick="js(PlayAudio('mp3/bg_music.mp3'););" /> -->
-
 	<layer name="audio123" url="img/open.png" x="20" y="80" keep="true" visible="true" scale="0.04" onclick="js(PlayAudio('mp3/bg_music.mp3'););"/>
-
-
-
 
 	<!-- 场景解说start -->
 	<layer name="skin_jieshao_m_container" keep="true" type="container" align="leftbottom" bgcolor="0x000000" bgalpha="0.5" x="0" y="90" width="100%" height="400" enabled="true" zorder="300" visible="false" state="closed">
@@ -35,16 +30,6 @@
 	set(scroolheight,get(layer[skin_scene_jieshao_m_content].height)); set(layer[skin_jianjie_m_scroll].height,get(scroolheight));
 	</action>
 
-
-	<action name="jqjieshuo_btn">
-		if(!jqjieshuo_btnset,layer[skin_jieshao_m_container].visible, true);
-
-		if(jqjieshuo_btnset,layer[skin_jieshao_m_container].visible, false);
-
-
-		set(layer[skin_jieshao_m_container].visible, false);
-	
-	</action>
 	<!-- 场景解说end -->
 
 
