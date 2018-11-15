@@ -4,11 +4,11 @@
 
 
 	<!-- skin settings (can be overridden in the tour.xml) -->
-	<skin_settings maps="false"
-	               maps_type="google"
+	<skin_settings maps="true"
+	               maps_type="baidu"
 	               maps_bing_api_key=""
 	               maps_google_api_key=""
-	               maps_zoombuttons="false"
+	               maps_zoombuttons="true"
 	               gyro="true"
 	               webvr="true"
 	               webvr_gyro_keeplookingdirection="false"
@@ -43,7 +43,7 @@
 	               controlbar_overlap.no-fractionalscaling="10"
 	               controlbar_overlap.fractionalscaling="0"
 	               design_skin_images="vtourskin.png"
-	               design_bgcolor="0x2D3E50"
+	               design_bgcolor="0x255001"
 	               design_bgalpha="0.8"
 	               design_bgborder="0"
 	               design_bgroundedge="1"
@@ -334,8 +334,10 @@
 		<layer name="skin_control_bar" type="container" align="bottom" width="get:skin_settings.controlbar_width" height="calc:skin_settings.controlbar_height" x="0" y="get:skin_settings.controlbar_offset" onloaded="skin_calc_opened_closed();" zorder="3">
 			<layer name="skin_control_bar_buttons" type="container" align="leftbottom" width="100%" height="get:skin_settings.controlbar_height">
 				<layer name="skin_btn_prev"      style="skin_base|skin_glow" crop="0|64|64|64"   align="left"        x="5"    y="0"  scale="0.5" alpha="0.5"  onclick="if(skin_settings.thumbs_loop, skin_nextscene_loop(-1), skin_nextscene(-1) );" />
-				<layer name="skin_btn_thumbs"    style="skin_base|skin_glow" crop="0|128|64|64"  align="left"        x="50"   y="0"  scale="0.5" ondown2="skin_showmap(false); skin_showthumbs();" />
+				<!-- 缩略图按钮 -->
+				<layer name="skin_btn_thumbs"    style="skin_base|skin_glow" crop="0|128|64|64"  align="left"        x="50"   y="0"  scale="0.5" ondown2="skin_showmap(false); skin_showthumbs();set(layer[skin_jieshao_m_container].visible,false)" />
 				<layer name="skin_btn_map"       style="skin_base|skin_glow" crop="64|128|64|64" align="left"        x="90"   y="0"  scale="0.5" ondown2="skin_showthumbs(false); skin_showmap();" visible="false" />
+				<!-- pc端按钮start -->
 				<layer name="skin_btn_navi" type="container" align="center" x="0" width="240" height="32">
 					<layer name="skin_btn_left"  style="skin_base|skin_glow" crop="0|192|64|64"  align="center"      x="-100" y="0"  scale="0.5" ondown2="set(hlookat_moveforce,-1);" onup2="set(hlookat_moveforce,0);" />
 					<layer name="skin_btn_right" style="skin_base|skin_glow" crop="64|192|64|64" align="center"      x="-60"  y="0"  scale="0.5" ondown2="set(hlookat_moveforce,+1);" onup2="set(hlookat_moveforce,0);" />
@@ -344,25 +346,17 @@
 					<layer name="skin_btn_in"    style="skin_base|skin_glow" crop="0|320|64|64"  align="center"      x="+60"  y="0"  scale="0.5" ondown2="set(fov_moveforce,-1);"     onup2="set(fov_moveforce,0);" />
 					<layer name="skin_btn_out"   style="skin_base|skin_glow" crop="64|320|64|64" align="center"      x="+100" y="0"  scale="0.5" ondown2="set(fov_moveforce,+1);"     onup2="set(fov_moveforce,0);" />
 
-
-
-
-                    <!-- 场景解说-myAdd -->
-
-	<layer name="skin_btn_introduce" style="skin_base|skin_glow" url="../img/text.png" x="0"  y="0" scale="0.03" onclick="js(PlayJieshuo);"  devices="html5"/>
-
-
-	<!-- <layer name="skin_btn_introduce2" style="skin_base|skin_glow" url="../img/text.png" x="-60"  y="0" scale="0.03" onclick="set(layer[skin_jieshao_m_container].visible, true)"  devices="html5"/> -->
-
-
-	<!-- 音频开关-myAdd -->
-	<layer name="skin_btn_sound" style="skin_base|skin_glow" crop="0|700|64|64" x="360"  y="0" scale="0.5" onclick="pausesoundtoggle(bgsnd); switch(crop,'0|700|64|64','64|700|64|64');" onloaded="if(ismobile,set(scale,1)" devices="html5"/>
-
-
-
-
-
+                    
+					<!-- 场景解说Btn-myAdd -->
+					<layer name="skin_btn_introduce" style="skin_base|skin_glow" url="../img/text.png" x="0"  y="0" scale="0.03" onclick="js(PlayJieshuo);"/>
+					<!-- <layer name="skin_btn_introduce2" style="skin_base|skin_glow" url="../img/text.png" x="-60"  y="0" scale="0.03" onclick="set(layer[skin_jieshao_m_container].visible, true)"  devices="html5"/> -->
+					<!-- 音频开关-myAdd -->
+					<layer name="skin_btn_sound" style="skin_base|skin_glow" crop="0|700|64|64" x="360"  y="0" scale="0.5" onclick="pausesoundtoggle(bgsnd); switch(crop,'0|700|64|64','64|700|64|64');" onloaded="if(ismobile,set(scale,1)"/>
 				</layer>
+
+				<!-- pc端按钮end -->
+
+				<!-- pc M都有的按钮start -->
 				<layer name="skin_btn_gyro"      style="skin_base|skin_glow" crop="0|384|64|64"  align="center"      x="+140" y="0"  scale="0.5" onclick="switch(plugin[skin_gyro].enabled); if(plugin[skin_gyro].enabled, skin_showmap(false));" visible="false" devices="html5" />
 				<layer name="skin_btn_vr"        style="skin_base|skin_glow" crop="0|0|80|64"    align="center"      x="+146" y="0"  scale="0.5" onclick="webvr.enterVR();" visible="false" />
 				<layer name="skin_btn_fs"        style="skin_base|skin_glow" crop="0|576|64|64"  align="right"       x="90"   y="0"  scale="0.5" onclick="switch(fullscreen);" devices="fullscreensupport" />
@@ -371,8 +365,16 @@
 					<layer name="skin_btn_show_icon" style="skin_base" crop="64|448|64|64" scale="0.5" align="bottom" y="2" enabled="false" />
 				</layer>
 				<layer name="skin_btn_next"      style="skin_base|skin_glow" crop="64|64|64|64"  align="right"       x="5"    y="0"   scale="0.5" alpha="0.5"  onclick="if(skin_settings.thumbs_loop, skin_nextscene_loop(+1), skin_nextscene(+1) );" />
-				</layer>
+
+
+				<!-- 场景解说Btn-myAdd -->
+				<layer name="skin_btn_introduce" style="skin_base" url="../img/text.png" align="right" x="180"  y="0" scale="0.03" onclick="skin_showthumbs(false);js(PlayJieshuo);" />
+				<!-- 音频开关-myAdd -->
+				<layer name="skin_btn_sound" style="skin_base" crop="0|700|64|64" x="190"  y="5" scale="0.5" onclick="pausesoundtoggle(bgsnd); switch(crop,'0|700|64|64','64|700|64|64');" onloaded="if(ismobile,set(scale,1)"/>
+				<!-- pc M都有的按钮end -->
 			</layer>
+
+		</layer>
 
 		<layer name="skin_loadingtext" type="text" align="center" x="5" y="-5" html="get:skin_settings.loadingtext" visible="false" background="false" border="false" enabled="false" css="calc:skin_settings.design_text_css + ' text-align:center; font-style:italic; font-size:22px;'" textshadow="get:skin_settings.design_text_shadow" />
 		<layer name="skin_buttonglow"  style="skin_base" crop="64|384|64|64" align="center" x="0" y="1" scale="1.0" alpha="0.0" visible="false" enabled="false" />
@@ -455,7 +457,7 @@
 		set(layer[skin_layer].visible, true);
 	</action>
 
-
+	
 	<action name="skin_addthumbs">
 		if(skin_settings.thumbs == false,
 			set(layer[skin_btn_thumbs].visible,false);

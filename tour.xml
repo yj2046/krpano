@@ -7,28 +7,31 @@
 	<hotspot name="skin_xiamianlogo" url="img/landmark.png" ath="0" atv="90" keep="true" visible="true" scale="2" onclick="openurl('http://www.quanjingke.com',_blank);" zoom="true" distorted="true"/>
 
 	<!-- 添加logo -->
-	<layer name="skin_logo" url="img/logo.png" x="20" y="5" align="lefttop" keep="true" visible="true" scale="0.05" onclick="openurl('https://you.autohome.com.cn/',_blank);"/>
+	<layer name="skin_logo" url="img/logo.png" x="20" y="5" align="lefttop" keep="true" visible="true" scale="0.05" onclick="openurl('https://m.amap.com/navigation/carmap/saddr=116.29845,39.95933,daddr=116.3971400000,39.9179400000',_blank);"/>
 	
 	<!-- 音频播放 -->
 	<!-- 直接在热点的点击事件里调用js的函数，把视频文件或音频文件传进去 -->
-	<layer name="audio123" url="img/open.png" x="20" y="80" keep="true" visible="true" scale="0.04" onclick="js(PlayAudio('mp3/bg_music.mp3'););"/>
+	<!-- <layer name="audio123" url="img/open.png" x="20" y="80" keep="true" visible="true" scale="0.04" onclick="js(PlayAudio('mp3/bg_music.mp3'););"/> -->
 
 	<!-- 场景解说start -->
-	<layer name="skin_jieshao_m_container" keep="true" type="container" align="leftbottom" bgcolor="0x000000" bgalpha="0.5" x="0" y="90" width="100%" height="400" enabled="true" zorder="300" visible="false" state="closed">
-		<layer name="titleAndcnoren" keep="true" type="container" align="leftop" bgcolor="0x000000" bgalpha="0.5" x="0" y="0" width="100%" height="70" enabled="true" zorder="300" visible="true">
-			<layer name="skin_scene_jieshao_m_title" url="%SWFPATH%/plugins/textfield.swf" align="lefttop" width="100%" height="30" autoheight="true" x="20" y="15" zorder="4" enabled="false" background="false" border="false" css="text-align:left; color:#cecece; font-family:微软雅黑,Arial;font-size:34px;leading:1px;letter-spacing:1px;" textshadow="1" textshadowcolor="0x000000" html="景区介绍" visible="true"/>
+	<layer name="skin_jieshao_m_container" keep="true" type="container" align="leftbottom" bgcolor="0x000000" bgalpha="0.5" x="0" y="40" width="100%" height="240" enabled="true" zorder="300" visible="false" state="closed">
+		<layer name="titleAndcnoren" keep="true" type="container" align="leftop" bgcolor="0x000000" bgalpha="0.5" x="0" y="0" width="100%" height="35" enabled="true" zorder="300" visible="true">
+			<layer name="skin_scene_jieshao_m_title" url="%SWFPATH%/plugins/textfield.swf" align="lefttop" width="100%" height="30" autoheight="true" x="10" y="5" zorder="4" enabled="false" background="false" border="false" css="text-align:left; color:#cecece; font-family:微软雅黑,Arial;font-size:16px;leading:1px;letter-spacing:1px;" textshadow="1" textshadowcolor="0x000000" html="景区介绍" visible="true"/>
 		</layer>
-		<layer name="skin_jianjie_m_scroll_mask" keep="true" type="container" align="lefttop" width="100%" height="310" bgcolor="0x000000" bgalpha="0" x="0" y="75">
+		<layer name="skin_jianjie_m_scroll_mask" keep="true" type="container" align="lefttop" width="100%" height="210" bgcolor="0x000000" bgalpha="0" x="0" y="35">
 			<layer name="skin_jianjie_m_scroll" url="%SWFPATH%/plugins/scrollarea.swf" alturl="%SWFPATH%/plugins/scrollarea.js" direction="v" align="top" zorder="100" width="100%" keep="true" visible="true" y="0">
 				<layer name="skin_jianjie_m" keep="true" type="container" align="lefttop" width="100%" height="100%" bgcolor="0x000000" bgalpha="0.1" x="0" y="0">
-					<layer name="skin_scene_jieshao_m_content" url="%SWFPATH%/plugins/textfield.swf" align="top" width="98%" autoheight="true" x="0" y="0" zorder="4" enabled="false" background="false" border="false" css="text-align:left; color:#cecece; font-family:微软雅黑,Arial;font-size:30px;leading:1px;letter-spacing:1px;" textshadow="1" textshadowcolor="0x000000" html="798艺术区位于北京朝阳区酒仙桥街道大山子地区，是国内名声最大也最成熟的艺术区，并已经成为了北京都市文化的新地标。798艺术区原是国营798厂等电子工业的老厂区所在地，后来一些艺术家集聚于此，在原有厂房的基础上，对一些建筑进行适当装修和修饰，使之成为富有特色的艺术展示和创作空间。目前，这里还有一些工厂在生产，艺术和工业在这里互不干扰，又和谐共生，所谓精致与粗狂并存、抽象与实物同在，我们可以在这里吸收来自艺术的魅力之光，感受物质与精神的极大冲撞。 798艺术区内有大量的艺术空间、咖啡馆、餐厅和小店。大名鼎鼎的艺术家如洪晃、刘索拉、李象群等都进驻了798。无论何时去，这里都有很多展览或讲座在等待你。除了室内展览，路边的创意雕塑也颇吸引人眼球，也许我们还会碰巧遇到一些独特又创意无限的行为艺术表演呢。 " visible="true" onautosized="set_skin_jianjie_mheight();"/>
+					<layer name="skin_scene_jieshao_m_content" url="%SWFPATH%/plugins/textfield.swf" align="top" width="98%" autoheight="true" x="0" y="0" zorder="4" enabled="false" background="false" border="false" css="text-align:left; color:#cecece; font-family:微软雅黑,Arial;font-size:14px;leading:1px;letter-spacing:1px;" textshadow="1" textshadowcolor="0x000000" html="798艺术区位于北京朝阳区酒仙桥街道大山子地区，是国内名声最大也最成熟的艺术区，并已经成为了北京都市文化的新地标。798艺术区原是国营798厂等电子工业的老厂区所在地，后来一些艺术家集聚于此，在原有厂房的基础上，对一些建筑进行适当装修和修饰，使之成为富有特色的艺术展示和创作空间。目前，这里还有一些工厂在生产，艺术和工业在这里互不干扰，又和谐共生，所谓精致与粗狂并存、抽象与实物同在，我们可以在这里吸收来自艺术的魅力之光，感受物质与精神的极大冲撞。 798艺术区内有大量的艺术空间、咖啡馆、餐厅和小店。大名鼎鼎的艺术家如洪晃、刘索拉、李象群等都进驻了798。无论何时去，这里都有很多展览或讲座在等待你。除了室内展览，路边的创意雕塑也颇吸引人眼球，也许我们还会碰巧遇到一些独特又创意无限的行为艺术表演呢。 " visible="true" onautosized="set_skin_jianjie_mheight();"/>
 				</layer>
 			</layer>
 		</layer>
 	</layer>
 	<action name="set_skin_jianjie_mheight">
-	set(scroolheight,get(layer[skin_scene_jieshao_m_content].height)); set(layer[skin_jianjie_m_scroll].height,get(scroolheight));
+	set(scroolheight,get(layer[skin_scene_jieshao_m_content].height)); 
+	set(layer[skin_jianjie_m_scroll].height,get(scroolheight));
 	</action>
+
+	
 
 	<!-- 场景解说end -->
 
@@ -77,7 +80,7 @@
 	               controlbar_overlap.no-fractionalscaling="10"
 	               controlbar_overlap.fractionalscaling="0"
 	               design_skin_images="vtourskin2.png"
-	               design_bgcolor="0x2D3E50"
+	               design_bgcolor="0x255001"
 	               design_bgalpha="0.8"
 	               design_bgborder="0"
 	               design_bgroundedge="1"
@@ -98,7 +101,7 @@
 	<!-- <include url="skin/vtourskin_design_ultra_light.xml" /> -->
 	<!-- <include url="skin/vtourskin_design_117.xml"         /> -->
 	<!-- <include url="skin/vtourskin_design_117round.xml"    /> -->
-	<!-- <include url="skin/vtourskin_design_black.xml"       /> -->
+	<include url="skin/vtourskin_design_black.xml"       />
 	<!-- <include url="skin/buttonsbar-include.xml"       />	 -->
 
 
@@ -128,8 +131,9 @@
 	  vlookat="77"
 	  />
 	<!-- 小行星开场效果end -->
+
 	
-	<scene name="scene_002" title="紫禁城-1" onstart="" thumburl="panos/002.tiles/thumb.jpg" lat="" lng="" heading="">
+	<scene name="scene_002" title="" onstart="" thumburl="panos/002.tiles/thumb.jpg" lat="" lng="" heading="">
 
 		<!-- <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" /> -->
 		
@@ -148,7 +152,7 @@
 
 	</scene>
 
-	<scene name="scene_003" title="紫禁城-2" onstart="" thumburl="panos/003.tiles/thumb.jpg" lat="" lng="" heading="">
+	<scene name="scene_003" title="" onstart="" thumburl="panos/003.tiles/thumb.jpg" lat="" lng="" heading="">
 
 		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
@@ -164,7 +168,7 @@
 
 	</scene>
 
-	<scene name="scene_004" title="紫禁城-3" onstart="" thumburl="panos/004.tiles/thumb.jpg" lat="" lng="" heading="">
+	<scene name="scene_004" title="" onstart="" thumburl="panos/004.tiles/thumb.jpg" lat="" lng="" heading="">
 
 		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
@@ -180,73 +184,18 @@
 
 
 
-	<!-- test -->
-	<scene>
-		<!-- 文本框的显示 -->
-		<!-- 有图片 textbox作为背景图层放置一张透明图片transpa.png，上面有textpicture/hotspot_pos_info/closetext三个图层，前者为图片图层，中间为文字图层,后者为关闭按钮的图层 -->
-		<layer name="textbox" keep="true" url="picture/transpa.png" align="lefttop" height="50%" width="40%" zorder="2" visible="false" >
-			<layer name="textpicture" keep="true" align="lefttop" height="80%" width="100%" zorder="2" />
-			<layer name="hotspot_pos_info"
-		        url="%SWFPATH%/plugins/textfield.swf"
-		        html=""
-		        css="font-family:Courier;"
-		        padding="20"
-		        align="bottom"
-		        height="20%" width="100%"
-		        /> 
-		    <layer name="closetext" keep="true" url="picture/close.png" align="righttop" zorder="3" onclick="set(layer[textbox].visible, false); " />
-		</layer>
-		 
-		<action name="print_hotspot_pos">
-			<![CDATA[
-			copy(print_ath, ath);
-			copy(print_atv, atv);
-			roundval(print_ath, 3);
-			roundval(print_atv, 3); 
-			calc(layer[hotspot_pos_info].html, '名称：' + name + '[br]水平视角：' + print_ath + '[br]垂直视角: ' + print_atv);
-		]]></action>
-		 
-		<action name="print_hotspot_pic">
-			if(name==="spot1", set(layer[textpicture].url, picture/picture.png));
-			if(name==="spot3", set(layer[textpicture].url, picture/Capture.png));
-			print_hotspot_pos(); 
-			set(layer[textbox].visible, true);
-		</action>	
-		 
-		<!-- 没图片  zorder 插入元素的次序索引，可以是字符也可以是数字，html5输出必须是0-100整数 -->
-		<layer name="textmessage" url="%SWFPATH%/plugins/textfield.swf" html="" css="font-family:Courier;" padding="20" zorder="2" visible="false" >	        
-		    <layer name="closemessage" keep="true" url="picture/close.png" align="righttop" zorder="3" onclick="set(layer[textmessage].visible, false); " />
-		</layer>
-		 
-		<action name="print_hotspot_message">
-			<![CDATA[
-			copy(print_ath, ath);
-			copy(print_atv, atv);
-			roundval(print_ath, 3);
-			roundval(print_atv, 3); 
-			calc(layer[textmessage].html, '名称：' + name + '[br]水平视角：' + print_ath + '[br]垂直视角: ' + print_atv);
-			set(layer[textmessage].visible, true);
-		]]></action>
-		 
-		<!-- ath hlookat  水平视角  -180 至  180 之间 -->
-		<!-- atv vlookat  垂直视角  -90  至  90  之间 -->
-		<!-- distored 设置热点是否跟随场景进行3D扭曲  zoom 设置是否场景缩放时，热点跟随缩放 -->
-		<hotspot name="spot1" url="picture/markdot.png" scale="0.05" ath="168.023" atv="9.288" zoom="true" distorted="true" onclick="print_hotspot_pic();" />
-		<hotspot name="spot2" url="picture/markdot.png" scale="0.05" ath="-91.156" atv="12.433" zoom="true" distorted="true" onclick="print_hotspot_message();" />
-		<hotspot name="spot3" url="picture/markdot.png" scale="0.1" ath="96.052" atv="-70.225" zoom="true" distorted="true" onclick="print_hotspot_pic()" />	
-
-	</scene>
+	
+	
 
 
 
 
 
-	<!-- 小行星开场效果start -->
+	<!-- 小行星开场效果start   when the loading is done, wait 2 seconds and then start with the animation to an normal view-->
 	<display flash10="off" details="24" />
  
  
  
-	<!-- when the loading is done, wait 2 seconds and then start with the animation to an normal view -->
 	<events onloadcomplete="delayedcall(2.0, normalview());" />
  
  
